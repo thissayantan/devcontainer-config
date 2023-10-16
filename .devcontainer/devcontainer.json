@@ -1,0 +1,130 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Web Development Container",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	// "build": {
+	// 	// Path is relative to the devcontainer.json file.
+	// 	"dockerfile": "Dockerfile"
+	// },
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"version": "latest",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"installOhMyZshConfig": true,
+			"upgradePackages": true,
+			"username": "sayantan",
+			"userUid": "automatic",
+			"userGid": "automatic"
+		},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+			"plugins": "colored-man-pages colorize docker git npm nvm sudo ssh-agent zsh-autosuggestions zsh-interactive-cd zsh-syntax-highlighting ",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git https://github.com/johannchangpro/zsh-interactive-cd.git",
+			"username": "sayantan"
+		}
+	},
+	// mount local directory to container
+	"mounts": [
+		"source=C:\\Users\\thiss\\.vscode-server-insiders,target=/home/sayantan/.vscode-server-insiders,type=bind"
+	]
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	"postCreateCommand": "/bin/zsh ./.devcontainer/scripts/post-create.sh",
+	// "postCreateCommand": "pwd & ls -la",
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "sayantan",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dsznajder.es7-react-js-snippets",
+				"Equinusocio.vsc-community-material-theme",
+				"equinusocio.vsc-material-theme-icons",
+				"ericliu.coldcode",
+				"esbenp.prettier-vscode",
+				"esbenp.prettier-vscode",
+				"github.vscode-github-actions",
+				"GitHub.copilot",
+				"ms-python.black-formatter",
+				"ms-python.python",
+				"richie5um2.vscode-sort-json",
+				"streetsidesoftware.code-spell-checker"
+			],
+			"settings": {
+				"editor.fontFamily": "'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+				"editor.fontSize": 18,
+				"editor.rulers": [
+					80
+				],
+				"emmet.includeLanguages": {
+					"javascript": "javascriptreact"
+				},
+				"emmet.syntaxProfiles": {
+					"javascript": "jsx",
+					"javascript": "html"
+				},
+				"workbench.colorCustomizations": {
+					"[Material Theme Ocean High Contrast]": {}
+				},
+				"workbench.iconTheme": "material-icon-theme",
+				"git.autofetch": true,
+				"gitlens.mode.active": "zen",
+				"terminal.integrated.cursorStyle": "line",
+				"workbench.panel.defaultLocation": "right",
+				"terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font Mono', 'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
+				"editor.fontLigatures": true,
+				"terminal.integrated.fontSize": 18,
+				"terminal.integrated.allowChords": false,
+				"editor.inlineSuggest.enabled": true,
+				"editor.autoClosingBrackets": "always",
+				"[typescript]": {
+					"editor.autoClosingBrackets": "always"
+				},
+				"[typescriptreact]": {
+					"editor.autoClosingBrackets": "always"
+				},
+				"remote.SSH.remotePlatform": {
+					"aws-ubuntu": "linux"
+				},
+				"github.copilot.enable": {
+					"*": true,
+					"yaml": false,
+					"plaintext": true,
+					"markdown": false
+				},
+				"python.insidersChannel": "weekly",
+				"javascript.updateImportsOnFileMove.enabled": "always",
+				"typescript.updateImportsOnFileMove.enabled": "always",
+				"sort-json.settings.sortType": "Value",
+				"workbench.colorTheme": "Material Theme Ocean High Contrast",
+				"window.titleBarStyle": "custom",
+				"[python]": {
+					"editor.formatOnType": true,
+					"editor.defaultFormatter": "ms-python.black-formatter"
+				},
+				"git.enableSmartCommit": true,
+				"[html]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[css]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[json]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[jsonc]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"files.eol": "\n"
+			}
+		}
+	}
+}
